@@ -6,9 +6,10 @@ import com.google.common.collect.ImmutableMap;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-
+import net.arcanecitadel.morepaths.blocks.OtherPathBlock;
 import net.arcanecitadel.morepaths.registries.BlockRegistry;
 import net.arcanecitadel.morepaths.registries.ItemRegistry;
 
@@ -17,13 +18,15 @@ import net.arcanecitadel.morepaths.registries.ItemRegistry;
 
 		public static final String MODID = "morepaths";
 		public static final String NAME = "More Paths";
-		public static final String VERSION = "1.15.2-1.0.0";
+		public static final String VERSION = "1.15.2-1.0.1";
 
 		public ModLoader() {
 			BlockRegistry.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
 			ItemRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
 			FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
+
+			MinecraftForge.EVENT_BUS.addListener(OtherPathBlock::doPlayerHarvestCheck);
 		}
 
 		private void commonSetup(FMLCommonSetupEvent evt) {
@@ -38,4 +41,5 @@ import net.arcanecitadel.morepaths.registries.ItemRegistry;
 					new Block[] { BlockRegistry.GRAVEL_PATH.get(), BlockRegistry.COARSE_DIRT_PATH.get(),
 							BlockRegistry.SAND_PATH.get(), BlockRegistry.SNOW_PATH.get(), });
 		}
+		
 }

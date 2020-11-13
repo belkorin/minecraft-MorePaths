@@ -2,15 +2,22 @@ package net.arcanecitadel.morepaths.blocks;
 
 import java.util.Random;
 
+import net.arcanecitadel.morepaths.registries.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FallingBlock;
 import net.minecraft.block.GrassPathBlock;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ShovelItem;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class OtherPathBlock extends GrassPathBlock {
 
@@ -49,6 +56,23 @@ public class OtherPathBlock extends GrassPathBlock {
 			return false;
 		
 		return worldIn.isAirBlock(currentPos.down()) || FallingBlock.canFallThrough(worldIn.getBlockState(currentPos.down())) && currentPos.getY() >= 0;
+	}
+	
+	@SubscribeEvent()
+	public static void doPlayerHarvestCheck(PlayerEvent.HarvestCheck harvestEvent) {
+		PlayerEntity p = harvestEvent.getPlayer();
+		BlockState block = harvestEvent.getTargetBlock();
+		
+		if(!block.isIn(BlockRegistry.SNOW_PATH.get()))
+			return;
+
+		ItemStack held = p.getHeldItemMainhand();
+		
+		Item item = held.getItem();
+		if(!(item instanceof ShovelItem))
+			return;
+		
+		harvestEvent.setCanHarvest(true);
 	}
 
 }
