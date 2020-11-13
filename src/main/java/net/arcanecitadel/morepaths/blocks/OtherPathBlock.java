@@ -62,8 +62,9 @@ public class OtherPathBlock extends GrassPathBlock {
 	public static void doPlayerHarvestCheck(PlayerEvent.HarvestCheck harvestEvent) {
 		PlayerEntity p = harvestEvent.getPlayer();
 		BlockState block = harvestEvent.getTargetBlock();
+		Block snowPath = BlockRegistry.SNOW_PATH.get();
 		
-		if(!block.isIn(BlockRegistry.SNOW_PATH.get()))
+		if(block.getBlock() != snowPath)
 			return;
 
 		ItemStack held = p.getHeldItemMainhand();
