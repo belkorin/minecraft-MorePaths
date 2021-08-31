@@ -2,6 +2,7 @@ package net.arcanecitadel.morepaths.blocks;
 
 import java.util.Random;
 
+import net.arcanecitadel.morepaths.ModLoader;
 import net.arcanecitadel.morepaths.registries.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -13,11 +14,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class OtherPathBlock extends GrassPathBlock {
 
@@ -70,7 +74,9 @@ public class OtherPathBlock extends GrassPathBlock {
 		ItemStack held = p.getHeldItemMainhand();
 		
 		Item item = held.getItem();
-		if(!(item instanceof ShovelItem))
+		boolean isShovel = item.getToolTypes(held).contains(ToolType.SHOVEL);
+		
+		if(!isShovel)
 			return;
 		
 		harvestEvent.setCanHarvest(true);
