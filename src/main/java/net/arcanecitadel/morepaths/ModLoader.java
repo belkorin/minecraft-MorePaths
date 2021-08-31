@@ -17,7 +17,7 @@ import net.arcanecitadel.morepaths.registries.ItemRegistry;
 
 		public static final String MODID = "morepaths";
 		public static final String NAME = "More Paths";
-		public static final String VERSION = "1.15.2-1.0.1";
+		public static final String VERSION = "1.15.2-1.2.0";
 	    public static Logger logger = LogManager.getLogger();
 
 
