@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import net.arcanecitadel.morepaths.ModLoader;
 import net.arcanecitadel.morepaths.blocks.OtherPathBlock;
+import net.arcanecitadel.morepaths.config.ServerConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.GrassPathBlock;
@@ -36,6 +37,9 @@ public class BlockRegistry {
     
     public static Block getPathForBlock(Block fromBlock)
     {
+    	if(!ServerConfig.getPathTypeEnabled(fromBlock))
+    		return null;
+    	
     	GrassPathBlock path = ALL_PATHS.get(fromBlock);
     	return path;
     }

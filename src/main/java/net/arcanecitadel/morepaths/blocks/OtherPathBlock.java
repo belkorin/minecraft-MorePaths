@@ -4,10 +4,13 @@ import java.util.Random;
 
 import net.arcanecitadel.morepaths.ModLoader;
 import net.arcanecitadel.morepaths.registries.BlockRegistry;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.FallingBlock;
 import net.minecraft.block.GrassPathBlock;
+import net.minecraft.block.SoundType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.Item;
@@ -29,9 +32,20 @@ public class OtherPathBlock extends GrassPathBlock {
 	private boolean _isFallingBlock;
 	
 	public OtherPathBlock(Block pathedFrom) {
-		super(Block.Properties.from(pathedFrom));
+		super(getProperties(pathedFrom));
 		_pathedFrom = pathedFrom;
 		_isFallingBlock = pathedFrom instanceof FallingBlock;
+	}
+	
+	//copy the basic properties, without ticking randomly
+	private static Properties getProperties(Block pathedFrom)
+	{
+		BlockState state = pathedFrom.getDefaultState();
+		
+		Properties newPathProperties = AbstractBlock.Properties.create(state.getMaterial(), state.getMaterialColor(null, null))
+		.hardnessAndResistance(state.getBlockHardness(null, null)).sound(state.getSoundType());
+		
+		return newPathProperties;
 	}
 	
 	@Override
