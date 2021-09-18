@@ -19,6 +19,11 @@ public class BlockRegistry {
 	public static final RegistryObject<Block> COARSE_DIRT_PATH = BLOCKS.register("coarse_dirt_path", () -> createBlock(Blocks.COARSE_DIRT));
 	public static final RegistryObject<Block> SAND_PATH = BLOCKS.register("sand_path", () -> createBlock(Blocks.SAND));
 	public static final RegistryObject<Block> SNOW_PATH = BLOCKS.register("snow_path", () -> createBlock(Blocks.SNOW_BLOCK));
+	public static final RegistryObject<Block> RED_SAND_PATH = BLOCKS.register("red_sand_path", () -> createBlock(Blocks.RED_SAND));
+	public static final RegistryObject<Block> PODZOL_PATH = BLOCKS.register("podzol_path", () -> createBlock(Blocks.PODZOL));
+	public static final RegistryObject<Block> MYCELIUM_PATH = BLOCKS.register("mycelium_path", () -> createBlock(Blocks.MYCELIUM));
+	public static final RegistryObject<Block> CRIMSON_GRASS_PATH = BLOCKS.register("crimson_nylium_path", () -> createBlock(Blocks.field_235381_mu_));
+	public static final RegistryObject<Block> WARPED_GRASS_PATH = BLOCKS.register("warped_nylium_path", () -> createBlock(Blocks.field_235372_ml_));
 	
     static HashMap<Block, GrassPathBlock> ALL_PATHS = new HashMap<Block, GrassPathBlock>();
     
