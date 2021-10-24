@@ -1,10 +1,10 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "particle": "minecraft:block/crimson_nylium",
+    "particle": "morepaths:block/crimson_nylium_path_top",
     "top": "morepaths:block/crimson_nylium_path_top",
     "side": "morepaths:block/crimson_nylium_path_side",
-    "bottom": "minecraft:block/crimson_nylium"
+    "bottom": "minecraft:block/netherrack"
   },
     "elements": [
         {   "from": [ 0, 0, 0 ],

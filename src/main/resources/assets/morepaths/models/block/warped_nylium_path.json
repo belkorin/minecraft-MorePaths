@@ -1,10 +1,10 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "particle": "minecraft:block/warped_nylium",
+    "particle": "morepaths:block/warped_nylium_path_top",
     "top": "morepaths:block/warped_nylium_path_top",
     "side": "morepaths:block/warped_nylium_path_side",
-    "bottom": "minecraft:block/warped_nylium"
+    "bottom": "minecraft:block/netherrack"
   },
     "elements": [
         {   "from": [ 0, 0, 0 ],

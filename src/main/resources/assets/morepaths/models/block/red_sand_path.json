@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "particle": "minecraft:block/red_sand",
+    "particle": "morepaths:block/red_sand_path_top",
     "top": "morepaths:block/red_sand_path_top",
     "side": "morepaths:block/red_sand_path_side",
     "bottom": "minecraft:block/red_sand"
