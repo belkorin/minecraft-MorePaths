@@ -1,0 +1,7 @@
+{
+
+    "block.morepaths.coarse_dirt_path" : "Chemin dans la terre stérile",
+    "block.morepaths.gravel_path" : "Chemin dans le gravier",
+    "block.morepaths.sand_path" : "Chemin dans le sable",
+    "block.morepaths.snow_path" : "Chemin dans la neige"
+}
